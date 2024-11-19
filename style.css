@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+    /* border: solid 3px red; */
+}
+
+
+h1, #board {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#board {
+    width: 320px;
+    height: 320px;
+    border: solid 2px black;
+    
+}
