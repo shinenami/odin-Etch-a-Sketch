@@ -23,5 +23,5 @@ h1, #board {
 
 .board-square {
     flex: 0 1 var(--flex-item-width);
-    border: solid 1px red;
+    /* border: solid 1px red; */
 }
