@@ -8,20 +8,54 @@
     --flex-item-width: 6.25%;
 }
 
+body {
+    background-color: rgb(144, 94, 173);
+}
+
 h1, #board {
     margin-left: auto;
     margin-right: auto;
 }
 
 #board {
-    width: 320px;
-    height: 320px;
+    width: 600px;
+    height: 600px;
     border: solid 2px black;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
+    background-color: #fff;
 }
 
 .board-square {
-    flex: 0 1 var(--flex-item-width);
+    flex: 1 1 var(--flex-item-width);
     /* border: solid 1px red; */
+
+    user-select: none;
+}
+
+#inputSize {
+    display:flex;
+    justify-content: center;
+    /* align-items: center; */
+    margin: 24px 0;
+    position: relative;
+}
+
+#inputSize input {
+    text-align: left;
+    border: solid 3px white;
+}
+
+
+#sliderTooltip {
+    font-size: 12px;
+    position: absolute;
+    border-radius: 9px;
+    padding: 5px;
+    color: #fff;
+    background-color: #333;
+    transform: translate(-50%, -150%);
+    white-space: nowrap;
+    visibility: hidden;
 }
