@@ -45,26 +45,27 @@ function updateSquaresWidth(columns) {
     document.documentElement.style.setProperty('--flex-item-width', `${100/columns}%`)
 }
 
+
 async function createSquares(rows, columns = rows) {
-    // const fragment = document.createDocumentFragment()
+    const fragment = document.createDocumentFragment()
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++) {
             const square = document.createElement("div")
             Object.assign(square, {
                 classList: "board-square",
-                id: `row:${r+1}+column:${c+1}`,
+                // id: `row:${r+1}+column:${c+1}`,
                 draggable: false,
                 style: `opacity: 0.1`
             })
             
             // rgb = randomRGB();
             // square.style.backgroundColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`
-            board.appendChild(square)
-            // fragment.appendChild(square)
+            // board.appendChild(square)
+            fragment.appendChild(square)
             // await sleep(0.1)
         }
     }
-    // board.append(fragment);
+    board.append(fragment);
 }
 
 function sleep(ms) { 
