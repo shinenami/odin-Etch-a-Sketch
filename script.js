@@ -9,12 +9,14 @@ const inputSize = document.createElement("div")
 const tooltip = document.createElement("div")
 const inputSizeField = inputSize.appendChild(document.createElement("input"))
 const inputSizeButton = inputSize.appendChild(document.createElement("button"))
-const rgbButton = document.createElement("input")
-const rgbLabel = document.createElement("label")
 
-rgbLabel.htmlFor = rgbButton
-rgbLabel.textContent = "rgb"
-rgbButton.prepend(rgbLabel)
+const rgbContainer = document.createElement("div")
+rgbContainer.id = "rgbContainer"
+const rgbCheckbox = document.createElement("input")
+const rgbLabel = document.createElement("label");
+rgbLabel.htmlFor = rgbCheckbox.id;
+rgbLabel.textContent = "RGB";
+
 Object.assign(inputSizeField, {
     type : "range",
     // placeholder : "Input size",
@@ -26,18 +28,23 @@ Object.assign(inputSizeField, {
         updateSliderTooltip(this)
     }
 })
-Object.assign(rgbButton, {
+Object.assign(rgbCheckbox, {
     type: "checkbox",
-    textContent: "rgb"
-
+    id: "rgbCheckbox"
 })
 tooltip.id = "sliderTooltip"
 inputSize.id = "inputSize"
 inputSizeButton.textContent = "Set"
 inputSize.appendChild(tooltip)
-// inputSize.appendChild(rgbButton)
+rgbContainer.appendChild(rgbCheckbox)
+rgbContainer.appendChild(rgbLabel);
+inputSize.appendChild(rgbContainer)
+
 body.insertBefore(inputSize, board);
 // body.insertBefore(tooltip, board)
+
+
+
 
 
 function updateSliderTooltip(slider) {
@@ -128,9 +135,17 @@ document.addEventListener("mouseup", () => {
     isMouseDown = false;
 })
 
-rgbButton.addEventListener("change", () => {
-    isRGB = rgbButton.checked;
+rgbCheckbox.addEventListener("change", () => {
+    isRGB = rgbCheckbox.checked;
     console.log(`isRGB: ${isRGB}`)
+})
+
+touchSquare = null;
+
+board.addEventListener("touchmove", (e) => {
+    if (e.target == touchSquare) return;
+    colorize(e)
+    touchSquare = e.target
 })
 
 board.addEventListener("mouseover", colorize)

@@ -59,3 +59,12 @@ h1, #board {
     white-space: nowrap;
     visibility: hidden;
 }
+
+#rgbContainer {
+    margin-top: 4px;
+}
+#rgbContainer label {
+    font-size: large;
+    color: #fff;
+    visibility: hidden;
+}
